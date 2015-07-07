@@ -1,0 +1,16 @@
+<div class="myCart">
+<% @products.each do |user_product| %>
+  <div class="single_product">
+    <p> <%= user_product.name %> </p>
+    <p><%= Money.new(user_product.price, "USD").format %></p>
+
+    <%= form_tag(update_to_cart_path(user_product), method: :put) do %>
+        <%= text_field_tag 'product_quantity', current_user.product_quantity(user_product.id) %><br />
+        <%= submit_tag 'Update' %>
+    <% end %>
+
+    <%= link_to "Remove", remove_from_cart_path(user_product), method: :delete %>
+  </div>
+<% end %>
+  <%= link_to "Checkout", checkout_cart_path %>
+</div>
