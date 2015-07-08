@@ -10,14 +10,19 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+ @import url(http://fonts.googleapis.com/css?family=Open+Sans:100,300);
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "layout";
+ @import "product";
 
 body {
+  font-family: 'Open Sans', 'Times New Roman', serif;
   background-color: silver;
 }
 
 .nav-link{
-  font-size:2rem;
+  font-size:3rem;
+  float:right;
 }
