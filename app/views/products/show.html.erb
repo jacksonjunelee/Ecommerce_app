@@ -3,5 +3,5 @@
   <p> Price: <%= Money.new(@product.price, "USD").format %> </p>
   <p> Quantity: <%= @product.quantity %></p>
   <p> Description: <%= @product.description %></p><br>
-  <%= link_to "Add to Cart", add_to_cart_path(@product), method: :put  %>
+  <%= link_to "Add to Cart", add_to_carts_path(@product), method: :put  %>
 </div>

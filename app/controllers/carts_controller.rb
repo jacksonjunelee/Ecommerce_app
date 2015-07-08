@@ -24,17 +24,13 @@ class CartsController < ApplicationController
     product = current_user.product_quantities.where(product_id: params[:product_id]).first
     product.quantity = params[:product_quantity]
     product.save
-    redirect_to cart_path
+    redirect_to carts_path
   end
 
   def remove
     product = current_user.product_quantities.where(product_id: params[:product_id]).first
     product.delete
-    redirect_to cart_path
-  end
-
-  def checkout
-    @
+    redirect_to carts_path
   end
 
 end

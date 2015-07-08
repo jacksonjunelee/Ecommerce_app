@@ -1,0 +1,27 @@
+<h1> Summary </h1>
+<%= form_for @order do |f| %>
+  <%= f.label :firstname %>:
+  <%= f.text_field :firstname, readonly: true %><br />
+
+  <%= f.label :lastname %>:
+  <%= f.text_field :lastname,readonly: true %><br />
+
+  <%= f.label :address %>:
+  <%= f.text_field :address,readonly: true %><br />
+
+  <%= f.label :state %>:
+  <%= f.text_field :state,readonly: true %><br />
+
+  <%= f.label :city %>:
+  <%= f.text_field :city,readonly: true %><br />
+
+  <%= f.label :zipcode %>:
+  <%= f.text_field :zipcode,readonly: true %><br />
+
+  <%= f.label :total %>:
+  <%= f.text_field :total,readonly: true %><br />
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
+  <%= f.submit %>
+<% end %>

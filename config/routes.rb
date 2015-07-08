@@ -2,11 +2,13 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :registrations => "users/registrations" }
   root 'products#index'
   resources :products, only: [:index, :show]
-  resource :cart, only: [:show] do
+  resource :carts, only: [:show] do
     put 'add/:product_id', to: 'carts#add', as: :add_to
     put 'update/:product_id', to: 'carts#update', as: :update_to
     delete 'remove/:product_id', to: 'carts#remove', as: :remove_from
-    get 'checkout', to: 'carts#checkout', as: :checkout
+  end
+  resource :orders, only: [:new, :create] do
+    get 'summary', to: 'orders#summary', as: :summary
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
