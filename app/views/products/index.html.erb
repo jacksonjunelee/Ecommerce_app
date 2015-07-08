@@ -1,10 +1,12 @@
-<% @products.each do |product| %>
-  <div class="single_product">
-    <h1> <%= product.name  %> </h1>
-    <p> Price: <%= Money.new(product.price, "USD").format %> </p>
-    <p> Quantity: <%= product.quantity %></p>
-    <p> Description: <%= product.description %></p>
-    <%= link_to "View Product", product_path(product) %><br>
-    <%= link_to "Add to Cart", add_to_carts_path(product), method: :put %>
-  </div>
-<% end %>
+<div class="all-product">
+  <% @products.each do |product| %>
+    <div class="single_product">
+      <h1> <%= product.name  %> </h1>
+      <p> Price: <%= Money.new(product.price, "USD").format %> </p>
+      <p> Quantity: <%= product.quantity %></p>
+      <p> Description: <%= product.description %></p>
+      <%= link_to "View Product", product_path(product) %><br>
+      <%= link_to "Add to Cart", add_to_carts_path(product), method: :put %>
+    </div>
+  <% end %>
+</div>

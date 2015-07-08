@@ -10,8 +10,17 @@ class OrdersController < ApplicationController
   end
 
   def create
-    if Order.create(order_params)
-		    redirect_to root_path
+    if order = Order.create(order_params)
+      current_user.product_quantities.each do |history|
+        OrderHistory.create({
+          product_id: history.product_id,
+          user_id: history.user_id,
+          order_id: order.id,
+          quantity: history.quantity
+          })
+      end
+      current_user.products.delete_all
+		  redirect_to root_path
     else
       redirect_to new_orders_path
     end
