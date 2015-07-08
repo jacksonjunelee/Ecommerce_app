@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :products, through: :product_quantities
   has_many :product_quantities
-  has_many :orders 
+  has_many :orders
+  has_many :order_histories
 
   def cart
     self.products.length
