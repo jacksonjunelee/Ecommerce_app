@@ -1,5 +1,9 @@
 .all-product{
+  overflow: hidden;
   clear:right;
+	text-align: center;
+  margin: 2rem 0 0 4%;
+  width: 95%;
 }
 
 .single_product {
@@ -8,5 +12,12 @@
 	border-radius: 5px;
 	float: left;
 	text-align: center;
-	margin: 3px;
+	margin: 6px;
+  border: ridge;
+}
+
+.product_show{
+  font-size: 3rem;
+  text-align: center;
+
 }

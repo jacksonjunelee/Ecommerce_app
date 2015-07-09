@@ -11,18 +11,38 @@
  * file per style scope.
  *
  */
+ @import "reset";
  @import url(http://fonts.googleapis.com/css?family=Open+Sans:100,300);
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "layout";
  @import "product";
+ @import "cart";
 
 body {
   font-family: 'Open Sans', 'Times New Roman', serif;
   background-color: silver;
+  width: 100%;
+  height: 900px;
+  margin: 0px;
+}
+
+img {
+  padding: 5px;
+  border: 1px solid gray;
+  height: 35%;
+  width: 60%;
 }
 
 .nav-link{
   font-size:3rem;
   float:right;
+}
+
+h1 {
+  text-align: center;
+}
+
+label {
+  font-weight:bold;
 }

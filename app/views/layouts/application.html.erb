@@ -31,7 +31,13 @@
   <a href="/">Products</a>
 </nav>
 
-<%= yield %>
+<% if flash[:notice] %>
+  <h1 class="alert"><%= flash[:notice] %></h1>
+<% end %>
+
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

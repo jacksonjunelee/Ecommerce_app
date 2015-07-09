@@ -1,7 +1,13 @@
 class OrdersController < ApplicationController
 
   def new
-    @order = Order.new
+    if current_user.cart_number == 0
+      flash[:notice] = "Nothing in Cart"
+      redirect_to carts_path
+    else
+      @order = Order.new
+      @order.total = params[:total]
+    end
   end
 
   def summary
@@ -11,12 +17,14 @@ class OrdersController < ApplicationController
 
   def create
     if order = Order.create(order_params)
-      current_user.product_quantities.each do |history|
+      current_user.product_quantities.each do |order_history|
+        order_history.product.quantity -= order_history.quantity
+        order_history.product.save
         OrderHistory.create({
-          product_id: history.product_id,
-          user_id: history.user_id,
+          product_id: order_history.product_id,
+          user_id: order_history.user_id,
           order_id: order.id,
-          quantity: history.quantity
+          quantity: order_history.quantity
           })
       end
       current_user.products.delete_all

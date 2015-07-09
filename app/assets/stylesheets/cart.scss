@@ -1,0 +1,32 @@
+.checkout {
+  clear: right;
+  background-color: blue;
+  color: white;
+  margin: 2rem 0 0 20%;
+  text-align: center;
+  width: 60%;
+}
+
+.myCart {
+  overflow: hidden;
+}
+
+.alert {
+   font-weight: bold;
+   color: red;
+   margin: 0 auto;
+   text-align: center;
+   -moz-border-radius: 4px 4px 4px 4px;
+   -webkit-border-radius: 4px 4px 4px 4px;
+   border-radius: 4px 4px 4px 4px;
+   margin-bottom: 18px;
+   padding: 12px 25px 12px 24px;
+   -moz-box-shadow: 3px 3px 1px 1px #CCCCCC;
+   -webkit-box-shadow: 3px 3px 1px 1px #CCCCCC;
+   box-shadow: 3px 3px 1px 1px #CCCCCC;
+}
+
+.new_order{
+  max-width:750px;
+  margin: 0 auto;
+}
