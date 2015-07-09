@@ -1,6 +1,7 @@
-<div class="single_product">
+<div class="product_show">
   <h1> <%= @product.name  %> </h1>
-  <p> Price: <%= Money.new(@product.price, "USD").format %> </p>
+  <img src="<%= @product.url %>">
+  <p> Price: <%= @product.money_amount %> </p>
   <p> Quantity: <%= @product.quantity %></p>
   <p> Description: <%= @product.description %></p><br>
   <%= link_to "Add to Cart", add_to_carts_path(@product), method: :put  %>

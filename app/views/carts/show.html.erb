@@ -1,7 +1,8 @@
 <div class="myCart">
 <% @products.each do |user_product| %>
   <div class="single_product">
-    <p> <%= user_product.name %> </p>
+    <h1> <%= user_product.name %> </h1>
+    <img src="<%= user_product.url %>">
     <p><%= Money.new(user_product.price, "USD").format %></p>
 
     <%= form_tag(update_to_carts_path(user_product), method: :put) do %>
@@ -12,5 +13,8 @@
     <%= link_to "Remove", remove_from_carts_path(user_product), method: :delete %>
   </div>
 <% end %>
-  <%= link_to "Checkout", new_orders_path %>
 </div>
+
+  <h1> Total: <%= @total %> </h1>
+
+  <%= link_to "Checkout", {controller: "orders", action: "new", :total => @total}, class: "btn btn-lg checkout" %>

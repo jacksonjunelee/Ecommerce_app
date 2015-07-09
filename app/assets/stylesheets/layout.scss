@@ -1,4 +1,15 @@
 .navbar-text{
   float:right;
   padding: 0 0 10px 100px;
+  margin: 0 auto;
+}
+
+.navbar {
+  clear:right;
+  font-size: 3rem;
+  text-align: center;
+  background-color: pink;
+  width: 90%;
+  margin: 0 auto;
+  border: ridge;
 }

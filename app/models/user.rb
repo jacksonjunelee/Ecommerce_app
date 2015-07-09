@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     self.product_quantities.where(product_id: id).first.quantity
   end
 
+  def product_to_update(id)
+    self.product_quantities.where(product_id: id).first
+  end
+
   def cart_number
     cart_number = 0
     self.product_quantities.each { |product| cart_number += product.quantity}

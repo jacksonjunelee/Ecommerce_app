@@ -2,7 +2,8 @@
   <% @products.each do |product| %>
     <div class="single_product">
       <h1> <%= product.name  %> </h1>
-      <p> Price: <%= Money.new(product.price, "USD").format %> </p>
+      <img src="<%= product.url %>">
+      <p> Price: <%= product.money_amount %> </p>
       <p> Quantity: <%= product.quantity %></p>
       <p> Description: <%= product.description %></p>
       <%= link_to "View Product", product_path(product) %><br>

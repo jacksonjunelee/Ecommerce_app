@@ -8,24 +8,36 @@
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
 
-<p class="navbar-text pull-right">
-  <%= link_to carts_path do%>
-    <i class="shopping-cart"></i>
-    My Cart
-    (<span class="cart-count"><%= current_user.cart_number %></span>)
-  <%end%>
-  <br>
-  <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.username %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-  <% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-  <% end %>
-</p>
+<% if user_signed_in? %>
+  <p class="nav navbar-text pull-right">
+    <%= link_to carts_path do%>
+      <i class="shopping-cart"></i>
+      <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+      My Cart
+      (<span class="cart-count"><%= current_user.cart_number %></span>)
+    <%end%>
+    <br>
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    Logged in as <strong><%= current_user.username %></strong>.
+    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+    <% else %>
+    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+  </p>
+<% end %>
 
-<%= yield %>
+<nav class="nav navbar">
+  <a href="/">Products</a>
+</nav>
+
+<% if flash[:notice] %>
+  <h1 class="alert"><%= flash[:notice] %></h1>
+<% end %>
+
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>
