@@ -8,8 +8,12 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :order_histories
 
-  def cart
-    self.products.length
+  validates :username, presence: true
+
+  def cart_number
+    cart_number = 0
+    self.product_quantities.each { |product| cart_number += product.quantity}
+    return cart_number
   end
 
   def product_quantity(id)
@@ -18,11 +22,5 @@ class User < ActiveRecord::Base
 
   def product_to_update(id)
     self.product_quantities.where(product_id: id).first
-  end
-
-  def cart_number
-    cart_number = 0
-    self.product_quantities.each { |product| cart_number += product.quantity}
-    return cart_number
   end
 end
